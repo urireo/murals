@@ -16,14 +16,14 @@
 <!-- if this post has comments, it will display them -->
 <% if @post.comments.present? %>
   <div id="comments">
-    <h1>Comments</h1>
+    <h1>Comments:</h1>
   <!-- The `comments` method returns an array-like collection, so we can call `each` on it: -->
     <%= render @post.comments %>
   </div>
 <% end %>
 
 <div class="container">
-  <h2> Add a Comment </h2>
+  <h2> Add a Comment: </h2>
   <%= render :partial => "comments/form", locals: {comment: @post.comments.new} %>
 </div>
 

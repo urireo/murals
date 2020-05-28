@@ -3,10 +3,9 @@ class CommentsController < ApplicationController
   before_action :set_post,  :set_comment, :only =>[:edit, :update, :destroy]#except: [:create]
 
   def create
-    byebug
-    @post=Post.find(params[:comment][:post_id])
-    @comment= @post.comments.create(comment_params)
-    if @reply.save #if this returns not nill values, then it is success
+    @post=Post.find(params[:post_id])
+    @comment= @post.comments.new(comment_params)
+    if @comment.save #if this returns not nill values, then it is success
       flash.notice = "The reply was created successfully."
       redirect_to @post
     else

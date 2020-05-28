@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    render template: "posts/index.html.erb", layout: "application"
+    #render template: "posts/index.html.erb", layout: "application"
   end
 
   # Calls the show.html.erb
@@ -56,20 +56,19 @@ class PostsController < ApplicationController
 
 
   def destroy
-    byebug
-    @post =Post.find(params[:id])
+    #@post =Post.find(params[:id])
     @post.destroy
-    byebug
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
-    redirect_to @post
+
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
+      byebug
       @post = Post.find(params[:id])
     end
 

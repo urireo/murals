@@ -7,12 +7,16 @@ class RepliesController < ApplicationController
   def create
   #  @reply= @comment.replies.create(reply_params)
     @reply=Reply.new(reply_params)
+
     if @reply.save #if this returns not nill values, then it is success
       flash.notice = "The reply was created successfully."
     else
       flash.now.alert = @reply.errors.full_messages.to_sentence
     end
-    redirect_to @comment
+    byebug
+    c=Comment.find(params[:reply][:comment_id])
+    post=Post.find(c.post_id)
+    redirect_to post_path(post.id)
   end
 
   def edit
@@ -44,7 +48,7 @@ class RepliesController < ApplicationController
     #params.require(:reply).permit(:comment_id, :user_id, :content)
     #params.require(:reply).permit([:reply][:comment_id], [:reply][:user_id], [:reply][:content])
     cid=(params[:reply][:comment_id]).to_i
-    params.require(:reply).permit(params[:reply][:comment_id].to_i, params[:reply][:user_id].to_i, params[:reply][:content])
+    params.require(:reply).permit(:comment_id, :user_id,:content)
   end
 
   def catch_not_found(e)
