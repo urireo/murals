@@ -1,0 +1,17 @@
+<!--#Prints all comments for one post , called for EDIT-->
+<%= form_for [@post, comment] do |f| %>
+
+  <div class="field">
+    <%= f.label :user %>
+    <%= f.collection_select :user_id, User.all, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content, "Comment" %>
+    <%= f.text_area "content" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

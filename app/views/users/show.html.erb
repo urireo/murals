@@ -1,0 +1,21 @@
+#shows the comments each user has made for each post of mural
+
+
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>User name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>email:</strong>
+  <%= @user.email %>
+</p>
+
+  <!-- The `comments` method returns an array-like collection, so we can call `each` on it: -->
+  <!--<#%= render :partial => "books/form", locals: {book: @user.books.new} %> -->
+
+
+<%= link_to 'Edit my profile', edit_user_path(@user) %>
+<%= link_to "Go to  All Posts", posts_path %>
+<%= link_to 'Back', users_path %>

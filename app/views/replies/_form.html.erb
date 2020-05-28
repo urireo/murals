@@ -1,0 +1,26 @@
+<!--#Prints all replies for one comment -->
+<%= form_for [@comment, reply] do |f| %>
+<div class="row">
+  <div class="col-sm">
+    <div class="field">
+      <%= f.label :user %>
+      <%= f.collection_select :user_id, User.all, :id, :name, include_blank: true %>
+    </div>
+  </div>
+  <div class="col-sm">
+  <div class="field">
+    <%= f.label :content, "Reply" %>
+    <%= f.text_field "content" %>
+  </div>
+  </div>
+  <div class="col-sm">
+  <div class="field">
+    <%= f.label :comment_id %>
+    <%= f.text_field :comment_id %>
+  </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</div>
+<% end %>
