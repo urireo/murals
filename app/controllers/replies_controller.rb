@@ -13,7 +13,7 @@ class RepliesController < ApplicationController
     else
       flash.now.alert = @reply.errors.full_messages.to_sentence
     end
-    byebug
+
     c=Comment.find(params[:reply][:comment_id])
     post=Post.find(c.post_id)
     redirect_to post_path(post.id)

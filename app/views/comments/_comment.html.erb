@@ -9,11 +9,9 @@
   </div>
 
     <!-- if this post has comments, it will display them -->
-    <% byebug %>
+
   <% if comment.replies.present? %>
     <div id="replies">
-      <h4>Replies to this comment:</h4>
-      <% byebug %>
       <!-- The `comments` method returns an array-like collection, so we can call `each` on it: -->
       <%= render comment.replies %>
     </div>
