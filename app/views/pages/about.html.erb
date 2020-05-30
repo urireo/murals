@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <link rel="stylesheet" href="stylesheets/pages.scss" >
+    <title>Welcome to the Lakewood Community Mural Portal!</title>
+  </head>
+
+  <body id="home" data-spy="scroll" data-target=".navbar" data-offset="100" class="">
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-success fixed-top">
+      <div class="container" >
+      <a class="navbar-brand order-1 mr-0" href="https://www.codethedream.org" target="_blank">Presented by Code The Dream</a>
+        <%= image_tag("CTD_Logo_Primary-2.png", border: 0, style:'width:10%') %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/posts#index"> Home </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!--    /navbar-->
+    <!--Jumbotron    -->
+    <div class="jumbotron jumbotron-fluid bg-warning text-white background-image: url'../images/ElFu.jpg'">
+      <div class="container text-sm-center pt-5">
+        <h3 class="display-4"><%=t 'About Page' %></h3>
+        <p class="lead"> Lakewood shopping community mural</p>
+        <div>
+          <iframe width="512" height="332" src="https://player.pbs.org/viralplayer/3038331400/" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" seamless allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- /Jumbotron   -->
+    <div class="container pt-4">
+      <!-- about-->
+      <div id="about" class="row">
+        <div class="col-lg order-lg-2">
+          <h3 class="mb-4">About the Community Mural </h3>
+          <%= image_tag("bride.jpg", border: 0, style:'width:100%') %>
+          <p>Each beautiful segment of the community mural was inspired by a community member. There was extensive community input!</p>
+          <p>You can let us know what your favorite segment of the mural is. What does it inspire in you?</p>
+        </div>
+        <div class="col-lg order-lg-1">
+          <h3 class="mb-4">About the main Artist</h3>
+          <div>
+            <%= image_tag("cornelio.jpg", border: 0, style:'width:100%') %>
+          </div>
+          <p><a href="http://corneliocampos.web.unc.edu">Cornelio Campos</a> is a self-taught Mexican-American artist based in Durham, N.C. </p>
+          <p>Vibrant colors, iconic American symbols, and intricate geometric patterns define Mr. Campos’s work. </p>
+          <p>Through his paintings, he illustrates some of the harsh realities of immigrating to America that immigrants often overlook. Moreover, he highlights deep-seated political issues that contribute to Mexican immigration</p>
+
+        </div>
+         <div class="col-lg order-lg-3">
+          <h3 class="mb-4">Collaborations</h3>
+          <ul>
+            <li><strong><a href="https://www.zsr.org"> Z Smith Reynolds Foundation</a></strong>: Funder</li>
+            <li><strong><a href="https://elfuturo-nc.org">El Futuro</a></strong>: Grantee and Main organization</li>
+            <li><strong><a href="https://scrapexchange.org">The Scrap Exchange</a></strong>: Property Owner</li>
+            <li><strong><a href="https://elcentronc.org">El Centro Hispano</a></strong>: Community involvement</li>
+            <li><strong>Estephani Sanchez</strong>: Artist Aprentice</li>
+            <li><strong>Sandee Washington</strong>: Past artist</li>
+          </ul>
+        </div>
+      </div><!-- /about -->
+
+      <!--callout button-->
+
+      <button type="button" class="btn btn-outline-info btn-lg d-block mx-auto my-5" data-toggle="modal" data-target="#register">Sign in Now!</button>
+
+       <!-- signup form -->
+      <hr>
+      <div class="row py-4 text-muted">
+        <div class="col-md">
+          <p><strong>About Code The drem</strong></p>
+          <p>This app has been brought to you through  CODE THE DREAM, a non profit organization based in Durham NC where students from diverse backgrounds build real apps to launch their tech careers, and
+our communities benefit from the tools they create</p>
+        </div>
+
+        <div class="col-md p-3 mb-2 bg-success text-white text-sm-center">
+          <div class="col-md p-3 mb-2 bg-warning text-white rounded-pill">
+            <strong><h2><a  class="text-white" href="https://www.codethedream.org/donate/">Donate to CTD</a></h2>
+            </div>
+        </div>
+      </div>
+
+
+      <hr><!-- /signup form -->
+      <!-- signup form -->
+     </div> <!--  /.container -->
+<!--=====================================
+     FORM MODAL
+    =====================================-->
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="Sign in form" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-info text-white">
+            <h5 class="modal-title" id="exampleModalLabel">Sign in to access as a visitor</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+
+            <!--            login form-->
+            <form>
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Please!</strong> Be respectful and keep comments positive.
+                <button type="button" class="close" data-d ismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <div class="form-group">
+              <label for="role">Job Role:</label>
+                <select class="costum-select form-control" id="rome">
+                  <option value="full stack js developer"><%=t 'page_title' %></option>
+                  <option value="front end developer">Front End Developer</option>
+                  <option value="back end developer">Back End Developer</option>
+                  <option value="designer">Designer</option>
+                  <option value="student">Student</option>
+
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg">Register</button>
+            </form>
+
+
+<!-- /REGISTRATON FORM-->
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
+
+  </body
+</html>

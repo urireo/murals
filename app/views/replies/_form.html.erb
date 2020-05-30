@@ -1,26 +1,35 @@
-<!--#Prints all replies for one comment -->
+<!--  REPLIES FORM %>-->
+
 <%= form_for [@comment, reply] do |f| %>
+
 <div class="row">
-  <div class="col-sm">
+  <div class="">
     <div class="field">
       <%= f.label :user %>
       <%= f.collection_select :user_id, User.all, :id, :name, include_blank: true %>
     </div>
   </div>
   <div class="col-sm">
-  <div class="field">
-    <%= f.label :content, "Reply" %>
-    <%= f.text_field "content" %>
+    <div class="field border border-success">
+      <%= f.label :content %>
+      <div class="rounded-pill">
+      <%= f.text_field "content", placeholder: "Write a reply" %>
+    <div>
   </div>
   </div>
-  <div class="col-sm">
-  <div class="field" style="display: none;" >
-    <%= f.label :comment_id %>
-    <%= f.text_field :comment_id %>
-  </div>
+    <div class="col-sm">
+      <div class="field" style="display: none;" >
+        <%= f.label :comment_id %>
+        <%= f.text_field :comment_id %>
+      </div>
   </div>
   <div class="actions">
     <%= f.submit %>
+    <button type="button" class="btn btn-primary" onclick="window.history.back();">Cancel</button>
   </div>
+
 </div>
+
 <% end %>
+
+<!--  REPLIES FORM -->

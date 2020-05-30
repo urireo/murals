@@ -8,6 +8,7 @@
     <p> Password:</br> <%= f.password_field :password%></p>
     <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
     <%= f.submit :Signup %>
+    <button type="button" class="btn btn-primary" onclick="window.history.back();">Cancel</button>
   <% end %>
 
   <% if @user.errors.any? %>

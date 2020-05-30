@@ -45,11 +45,8 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-  #NEED A LINK HERE TO TAKE ME WHERE??????? <%= link_to "Home", root_path %>
-    end
+    flash.notice = "The user record was erased successfully."
+    redirect_to users_path
   end
 
   private

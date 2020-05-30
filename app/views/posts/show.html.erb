@@ -1,18 +1,31 @@
 <p id="notice"><%= notice %></p>
 <h1> Post</h1>
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%= @post.user.name %>
-</p>
+<div class="field">
+  <p>
+    <strong>Title:</strong>
+    <%= @post.title %>
+  </p>
+</div>
 
+<div style="width:400px; height:auto">
+<%= image_tag(@post.image) if @post.image.attached? %>
+    <!--#%#= link_to image_tag(@post.image, style:'width:100%'), posts_path %> -->
+
+</div>
+
+<div class="field">
+  <p>
+    <strong>Content:</strong>
+    <%= @post.content %>
+  </p>
+</div>
+
+<div class="field">
+    <p>
+      <strong>User:</strong>
+      <%= @post.user.name %>
+    </p>
+</div>
 <!-- if this post has comments, it will display them -->
 <% if @post.comments.present? %>
   <div id="comments">
@@ -23,7 +36,7 @@
 <% end %>
 
 <div class="container">
-  <h2> Add a Comment: </h2>
+  <h3> Add a Comment to this post: </h3>
   <%= render :partial => "comments/form", locals: {comment: @post.comments.new} %>
 </div>
 

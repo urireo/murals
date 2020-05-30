@@ -1,15 +1,10 @@
 <!--Displays comments for that post it was called from -->
 <div>
   <div>
-    <h4>
-      <strong>  <%= comment.user.name %>  </strong>
-      says:
-    </h4>
+    <h4> <strong>  <%= comment.user.name %>  </strong> says:  </h4>
     <%= comment.content %>
   </div>
-
     <!-- if this post has comments, it will display them -->
-
   <% if comment.replies.present? %>
     <div id="replies">
       <!-- The `comments` method returns an array-like collection, so we can call `each` on it: -->
@@ -18,14 +13,13 @@
   <% end %>
 
   <div class="container">
-    <h4> Reply </h4>
+    <h4> Reply to  <%= comment.user.name %>'s comment:</h4>
     <%= render :partial => "replies/form", locals: {reply: comment.replies.new} %>
   </div>
     <div class="comment-admin">
       <!-- <#%= link_to "Edit", edit_post_comments_path(@post, comment) %> -->
       <!--<#%= link_to "Reply", new_reply_path(@comment, comment.id) %> -->
-
-      <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
-      <%= link_to "Delete", [@post, comment], method: :delete  %>
+      <%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %>
+      <%= link_to "Delete Comment", [@post, comment], method: :delete  %>
     </div>
 </div>

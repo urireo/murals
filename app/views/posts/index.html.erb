@@ -1,33 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <link rel="stylesheet" href="stylesheets/pages.scss" >
+    <title>Welcome to the Community Mural Portal!</title>
+  </head>
+  <body  id="home" data-spy="scroll" data-target=".navbar" data-offset="100" class="">
+<!-- /navbar -->
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-success fixed-top">
+      <div class="container" >
+      <a class="navbar-brand order-1 mr-0" href="https://www.codethedream.org" target="_blank">Presented by Code The Dream</a>
+        <%= image_tag("CTD_Logo_Primary-2.png", border: 0, style:'width:10%') %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="pages/about">About</a>
+            <a class="nav-item nav-link" href="users#index"> Users </a>
+            <a class="nav-item nav-link" href="posts#new"> List all Post </a>
+            <a class="nav-item nav-link" href="posts#index"> Home </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+<!-- /navbar -->
+
+
+
 <p id="notice"><%= notice %></p>
+<h1 id="posts" class="display-4 text-center my-5 text-muted"><br>
+  List  of the Community Mural Posts
+</h1>
+<div class="container">
+<div class="card-deck">
+  <% @posts.each do |post| %>
+  <div class="col-md-6 col-lg-4">
+    <div class="card mb-3"> <!-- col-md-6 col-lg-4 -->
+      <div class="card-img-top mb-3 mx-auto">
+        <%= link_to image_tag(post.image, style:'width:100%') if post.image.attached? %>
+        <div class="card-body">
+          <h4 class="card-title"><%= post.title %></h4>
+          <p class="card-text"><%= post.content %></p>
+          <strong><p class="card-text"><%= post.user.name %></p></strong>
 
-<h1>List of Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>User name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td>  <%= post.user.name %>  </td>
-
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete %></td>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">
+            <%= link_to 'Comments', post %>  -
+            <%= link_to 'Edit Post', edit_post_path(post) %>  -
+            <%= link_to 'Delete Post', post, method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
+          </small>
+        </div>
+      </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
 <br>
+<%= link_to 'New post', new_post_path %>
 
-<%= link_to 'New Post', new_post_path %>
+    <p id="notice"><%= notice %></p>
+    <h5 id="posts" class="display-4 text-center my-5 text-muted"><br>
+        Posts Display
+    </h5>
+
+
+    <%= link_to 'Create Post', new_post_path %>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Content</th>
+          <th>User name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= post.content %></td>
+          <td>  <%= post.user.name %>  </td>
+
+          <td><%= link_to 'Show', post %></td>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete %></td>
+
+        </tr>
+        <% end %>
+      </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Create Post', new_post_path %>
+</body>
+</html>

@@ -1,12 +1,11 @@
 
 <div>
-  <strong><%= reply.user.name %> replays:</strong> <!-- reply.comment.user.name -->
+  <strong><%= reply.user.name %> replied:</strong> <!-- reply.comment.user.name -->
     <%= reply.content %>
-
     <div class="comment-admin">
       <!--<#%= link_to "Edit", edit_comment_reply_path(@comment, reply) %>-->
       <% @comment=Comment.find(reply.comment_id)%>
-      <%= link_to "Edit", edit_reply_path(@comment, reply) %>
-      <%= link_to "Delete", [@comment, reply], method: :delete  %>
+      <%= link_to "Edit Reply", edit_comment_reply_path(@comment, reply) %>
+      <%= link_to "Delete Reply", [@comment, reply], method: :delete  %>
       </div>
 </div>

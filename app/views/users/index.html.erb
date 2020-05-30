@@ -1,4 +1,37 @@
-<p id="notice"><%= notice %></p> #displays the flash.notice
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <link rel="stylesheet" href="stylesheets/pages.scss" >
+    <title>Welcome to the Community Mural Portal!</title>
+  </head>
+  <body  id="home" data-spy="scroll" data-target=".navbar" data-offset="100" class="">
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-success fixed-top">
+      <div class="container" >
+      <a class="navbar-brand order-1 mr-0" href="https://www.codethedream.org" target="_blank">Presented by Code The Dream</a>
+        <%= image_tag("CTD_Logo_Primary-2.png", border: 0, style:'width:10%') %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+
+            <a class="nav-item nav-link" href="#about">About</a>
+            <a class="nav-item nav-link" href="users#index"> Users </a>
+            <a class="nav-item nav-link" href="posts#new"> Create Post </a>
+            <a class="nav-item nav-link" href="posts#index"> Home </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+<br><br>
+<p id="notice"><%= notice %></p> 
 
 <h1>Mural past Visitors</h1>
 
@@ -28,5 +61,14 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+
+<div class="btn-group mt-4" role="group" aria-label="Callout buttons">
+  <a class="btn btn-light btn-lg" href="posts#index" > Back to Posts</a>
+</div>
+
+  <div class="btn-group mt-4" role="group" aria-label="Callout buttons">
+    <a class="btn btn-light btn-lg" href="<%= new_user_path %>" > Create user</a>
+  </div>
 <!-- <#!%= link_to 'Home', 'home#index' %> | -->
+</body>
+</html>

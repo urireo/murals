@@ -3,6 +3,7 @@ class Post < ApplicationRecord
 
   # destroy associated comments on article deletion
   has_many :comments, dependent: :destroy
+  has_one_attached :image
 
 
   validates :title, presence: true
