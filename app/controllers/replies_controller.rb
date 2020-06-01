@@ -4,8 +4,32 @@ class RepliesController < ApplicationController
 
 #afer creating a repply for a comment, it will show Post for that comment/reply
 
+<<<<<<< Updated upstream
   def create
   #  @reply= @comment.replies.create(reply_params)
+=======
+  def update
+    set_reply
+    @reply.update(reply_params)
+
+    c=Comment.find(params[:reply][:comment_id])
+    post=Post.find(c.post_id)
+    redirect_to post_path(post.id)
+
+    #post=Post.find_by(comment_id=params[:id])
+  #  redirect_to post_path(post.id)
+  end
+
+  def destroy #reply
+    set_reply
+    @reply.destroy
+    #c=Comment.find(params[:reply][:comment_id])
+    post=Post.find_by(comment_id=params[:id])
+    redirect_to post_path(post.id)
+  end
+
+  def create #reply
+>>>>>>> Stashed changes
     @reply=Reply.new(reply_params)
     if @reply.save #if this returns not nill values, then it is success
       flash.notice = "The reply was created successfully."

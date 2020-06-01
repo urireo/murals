@@ -1,5 +1,6 @@
 <!--#Prints all replies for one comment -->
 <%= form_for [@comment, reply] do |f| %>
+<<<<<<< Updated upstream
 <div class="row">
   <div class="col-sm">
     <div class="field">
@@ -24,3 +25,38 @@
   </div>
 </div>
 <% end %>
+=======
+  <div class="container  font-weight-lighter">
+    <div class="row   text-success ">
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-3 text-sm-center p-3 mb-2">
+        <%= f.label :user %>:
+        <%= f.collection_select :user_id, User.all, :id, :name, include_blank: true %>
+      </div>
+      <div class="  col-sm-5 text-sm text-wrap">
+        <!--<div class="col-sm-6  border text-success border-success rounded-pill border"> -->
+        <div class="field" style="display: none;" >
+          <%= f.label :content %>
+        </div>
+        <div class="field" style="padding-top: 15px;" >
+          <%= f.text_field "content",  size:"40",border:"none", outline: "none", apperance:"none", placeholder: "Write another reply" %>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="field" style="display: none;" >
+          <%= f.label :comment_id %>
+          <%= f.text_field :comment_id %>
+        </div>
+        <div class="actions" style="padding-top: 15px;">
+          <%= f.submit %>
+          <!--  <button type="button" class="btn btn-sm btn-light btn-outline-secondary" onclick="window.history.back();">Cancel</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<!--  REPLIES FORM -->
+>>>>>>> Stashed changes

@@ -4,8 +4,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+<<<<<<< Updated upstream
     @posts = Post.all
     render template: "posts/index.html.erb", layout: "application"
+=======
+    @posts = Post.order(updated_at: :desc)
+    #render template: "posts/index.html.erb", layout: "application"
+>>>>>>> Stashed changes
   end
 
   # Calls the show.html.erb

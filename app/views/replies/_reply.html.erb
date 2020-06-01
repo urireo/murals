@@ -1,4 +1,5 @@
 
+<<<<<<< Updated upstream
 <div>
   <strong><%= reply.user.name %> replays:</strong> <!-- reply.comment.user.name -->
     <%= reply.content%>
@@ -9,4 +10,25 @@
       <%= link_to "Edit", edit_reply_path(@comment, reply) %>
       <%= link_to "Delete", [@comment, reply], method: :delete  %>
       </div>
+=======
+<div class="container text-sm-left">
+  <div class="row   text-success font-weight-lighter  rounded-lg ">
+    <div class="col-sm-2  text-sm-right ">
+      <strong>
+        <%= reply.user.name %> replied:
+      </strong> <!-- reply.comment.user.name -->
+    </div>
+    <div class="col-sm-6 text-wrap bg-light border  border-white rounded-pill border-left-0">
+      <%= reply.content %>
+    </div>
+    <div class="comment-admin col-sm-4">
+      <!--<#%= link_to "Edit", edit_comment_reply_path(@comment, reply) %>-->
+      <% @comment=Comment.find(reply.comment_id)%>
+      <%= link_to "Edit | ", edit_comment_reply_path(@comment, reply) %>
+      <%= link_to "Delete ", [@comment, reply], method: :delete  %>
+    </div>
+  </div>
+  <div class="row ">
+  </div>
+>>>>>>> Stashed changes
 </div>

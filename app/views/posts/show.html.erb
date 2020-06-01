@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <p id="notice"><%= notice %></p>
 <h1> Post</h1>
 <p>
@@ -17,16 +18,99 @@
 <% if @post.comments.present? %>
   <div id="comments">
     <h1>Comments</h1>
-  <!-- The `comments` method returns an array-like collection, so we can call `each` on it: -->
-    <%= render @post.comments %>
-  </div>
-<% end %>
+=======
 
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <link rel="stylesheet" href="stylesheets/pages.scss" >
+    <title> Community Mural Posts and Comments!</title>
+  </head>
+  <body  id="Post_show" data-spy="scroll" data-target=".navbar" data-offset="100" class="">
+    <div class="col-md p-3 mb-2 text-white text-sm-center">
+        <div class="col-md p-3 mb-2 bg-warning text-white rounded-pill text-sm-center">
+          <p id="notice"><%= notice %></p>
+          <h1> Post title: <%= @post.title %></h1>
+
+        </div>
+      </div>
+      <div class="container font-weight-lighter">
+        <div class= "field col-md p-3 mb-2 bg-success text-white text-sm-center">
+            <div style="width:100%; height:auto">
+              <%= image_tag(@post.image, style:'width:100%') if @post.image.attached? %>
+    <!--#%#= link_to image_tag(@post.image, style:'width:100%'), posts_path %> -->
+
+          </div>
+        </div>
+
+          <div class="row   text-success ">
+            <div class="field col-sm-2 text-sm-right">
+              <strong>
+                <h5>
+                  <%= @post.user.name %> posted:
+                </h5>
+              </strong>
+            </div>
+            <div class="field   text-sm-left badge badge-success text-wrap  col-md p-3 " >
+              <h5>
+                <%= @post.content %>
+              </h5>
+            </div>
+          </div>
+          <div  class="row   text-success">
+            <div class="col-sm-12 text-sm-right" >
+              <%= link_to 'Edit Post', edit_post_path(@post) %> |
+              <%= link_to 'Back', posts_path %>
+            </div>
+          </div>
+
+
+<!-- if this post has comments, it will display them -->
+        <% if @post.comments.present? %>
+          <div class= "row">
+
+            <div class="field col-sm-12 text-sm-center">
+              <div id="comments">
+                <h4>Comments to this post:</h4>
+>>>>>>> Stashed changes
+  <!-- The `comments` method returns an array-like collection, so we can call `each` on it: -->
+                <%= render @post.comments %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+
+<<<<<<< Updated upstream
 <div class="container">
   <h2> Add a Comment </h2>
   <%= render :partial => "comments/form", locals: {comment: @post.comments.new} %>
 </div>
+=======
+    <div class="row  border text-success border-warning rounded-lg  border">
+      <div class="field col-sm-12 text-sm-center">
+        <h5> Add  comment to this post: </h5>
+      </div>
+    </div>
+>>>>>>> Stashed changes
 
+        <%= render :partial => "comments/form", locals: {comment: @post.comments.new} %>
+  </div>
+  <div class="row py-4 text-muted">
+    <div class="col-sm-2">
+      </div>
+      <div class="col-sm-8">
+      <p><strong>About Code The Drem</strong></p>
+      <p>This app has been brought to you through  CODE THE DREAM, a non profit organization based in Durham NC where students from diverse backgrounds build real apps to launch their tech careers, and
+  our communities benefit from the tools they create</p>
+    </div>
+  </div>
+</<body>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+</html>

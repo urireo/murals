@@ -36,6 +36,7 @@ class CommentsController < ApplicationController
   def set_comment
     @comment = Comment.find(params[:id])
   end
+  
   def comment_params
     params.require(:comment).permit(:content, :post_id, :user_id)
   end

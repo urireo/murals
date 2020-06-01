@@ -1,11 +1,15 @@
 <!--#Prints all comments for one post , called for EDIT-->
 <%= form_for [@post, comment] do |f| %>
 
-  <div class="field">
-    <%= f.label :user %>
-    <%= f.collection_select :user_id, User.all, :id, :name, include_blank: true %>
-  </div>
+    <div class="row  border text-success font-weight-lighter border-warning rounded-lg border  text-sm-">
+      <div class=" col-sm-2">
+      </div>
+      <div class="field col-sm-2 text-sm text-wrap" style="padding-top: 15px;">
+        <%= f.label :user %>
+        <%= f.collection_select :user_id, User.all, :id, :name, include_blank: true %>
+      </div>
 
+<<<<<<< Updated upstream
   <div class="field">
     <%= f.label :content, "Comment" %>
     <%= f.text_area "content" %>
@@ -14,4 +18,20 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+=======
+      <div class="field  col-sm-5 text-sm text-wrap" style="padding-top: 15px;">
+        <div class="field" style="display:none">
+          <%= f.label :content, "Comment" %>
+        </div>
+        <%= f.text_area "content", size:"40", placeholder: "Write another comment to this post"  %>
+      </div>
+
+      <div class="actions field col-sm-1 text-sm-center" style="padding-top: 15px;">
+        <%= f.submit %>
+        </div>
+        <div class=" col-sm-2">
+        </div>
+    </div>
+
+>>>>>>> Stashed changes
 <% end %>

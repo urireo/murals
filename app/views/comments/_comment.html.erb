@@ -1,4 +1,5 @@
 <!--Displays comments for that post it was called from -->
+<<<<<<< Updated upstream
 <div>
   <div>
     <h4>
@@ -6,9 +7,24 @@
       says:
     </h4>
     <%= comment.content %>
+=======
+<div class="container  font-weight-lighter border-info rounded-lg border">
+  <div class="row  border text-warning rounded-lg border">
+    <div class="col-sm-2 text-wrap">
+      <h6> <strong>  <%= comment.user.name %>  </strong> said:  </h6>
+    </div>
+    <div class="col-sm-7 text-wrap text-sm-left">
+      <%= comment.content %>
+    </div>
+    <div class="col-sm-3 text-wrap">
+      <%= link_to "Edit ", edit_post_comment_path(@post, comment) %> -
+      <%= link_to "Delete Comment", [@post, comment], method: :delete  %>
+    </div>
+>>>>>>> Stashed changes
   </div>
 
     <!-- if this post has comments, it will display them -->
+<<<<<<< Updated upstream
   <% if comment.replies.present? %>
     <div id="replies">
       <h4>Replies to this comment:</h4>
@@ -27,5 +43,24 @@
 
       <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
       <%= link_to "Delete", [@post, comment], method: :delete  %>
+=======
+  <div class="row  border text-warning border-warning rounded-lg border">
+    <div class="col-sm-12">
+      <% if comment.replies.present? %>
+        <div id="replies">
+          <!-- The `comments` method returns an array-like collection, so we can call `each` on it: -->
+          <%= render comment.replies %>
+        </div>
+      <% end %>
+      </div>
     </div>
+    <div class="row  border text-warning border-warning rounded-lg border">
+      <div class="col-sm-12">
+          <div class="container">
+            <%= render :partial => "replies/form", locals: {reply: comment.replies.new} %>
+          </div>
+        </div>
+>>>>>>> Stashed changes
+    </div>
+  </div>
 </div>
