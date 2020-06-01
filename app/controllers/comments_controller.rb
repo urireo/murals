@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
   def set_comment
     @comment = Comment.find(params[:id])
   end
-  
+
   def comment_params
     params.require(:comment).permit(:content, :post_id, :user_id)
   end
@@ -44,6 +44,6 @@ class CommentsController < ApplicationController
   def catch_not_found(e)
     Rails.logger.debug("We had a not found exception.")
     flash.alert = e.to_s
-    redirect_to orders_path
+    redirect_to posts_path
   end
 end
